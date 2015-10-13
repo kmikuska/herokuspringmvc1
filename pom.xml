@@ -85,15 +85,15 @@
 						<configuration>
 							<includeTarget>false</includeTarget>
 							<includes>
-								<include>${project.build.directory}\spring-hibernate-template.war</include>
+								<include>${project.build.directory}\spring-hibernate-template-${version}.war</include>
 								<include>${project.build.directory}\dependency\webapp-runner-7.0.40.0.jar</include>
 							</includes>
 							<stack>cedar-14</stack>
 							<appName>herokuspringmvc1</appName>
-							<warFile>target\spring-hibernate-template.war</warFile>
+							<warFile>target\spring-hibernate-template-${version}.war</warFile>
 							<jdkVersion>1.8</jdkVersion>
 							<processTypes>
-								<web>${PRE_JAVA} java ${JAVA_OPTS} -jar target/dependency/webapp-runner-7.0.40.0.jar --port ${PORT} ${WEBAPP_RUNNER_OPTS} target/spring-hibernate-template.war</web>
+								<web>${PRE_JAVA} java ${JAVA_OPTS} -jar target/dependency/webapp-runner-7.0.40.0.jar --port ${PORT} ${WEBAPP_RUNNER_OPTS} target/spring-hibernate-template-${version}.war</web>
 							</processTypes>
 						</configuration>
 					</plugin>
