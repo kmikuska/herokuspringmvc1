@@ -38,21 +38,67 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.2.8</version>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>3.6.10.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jsimone</groupId>
+            <artifactId>webapp-runner</artifactId>
+            <version>7.0.34.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.2</version>
+                <version>2.4</version>
             </plugin>
         </plugins>
     </build>
+    <profiles>
+		<profile>
+			<id>dev</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.heroku.sdk</groupId>
+						<artifactId>heroku-maven-plugin</artifactId>
+						<configuration>
+							<includeTarget>false</includeTarget>
+							<includes>
+								<include>${project.build.directory}\spring-hibernate-template.war</include>
+								<include>${project.build.directory}\dependency\webapp-runner-7.0.40.0.jar</include>
+							</includes>
+							<stack>cedar-14</stack>
+							<appName>herokuspringmvc1</appName>
+							<warFile>target\spring-hibernate-template.war</warFile>
+							<jdkVersion>1.8</jdkVersion>
+							<processTypes>
+								<web>${PRE_JAVA} java ${JAVA_OPTS} -jar target/dependency/webapp-runner-7.0.40.0.jar --port ${PORT} ${WEBAPP_RUNNER_OPTS} target/spring-hibernate-template.war</web>
+							</processTypes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
