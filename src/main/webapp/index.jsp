@@ -85,6 +85,7 @@
 <div class="row">
 <div class="span8 offset2">
 <h1 class="alert alert-success">Ken's app is ready with Pipeline on Cedar 14!  This is my Pipeline Branch on Cedar 14.</h1>
+<h1 class="alert alert-success">Ken's app is ready with Pipeline on Cedar 14! Test.</h1>
 
 <div class="page-header">
   <h1>Get started with your Spring MVC and Hibernate Application</h1>
