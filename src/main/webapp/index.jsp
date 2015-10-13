@@ -84,7 +84,7 @@
 <div class="container" id="getting-started">
 <div class="row">
 <div class="span8 offset2">
-<h1 class="alert alert-success">Ken's app is ready with Pipeline!</h1>
+<h1 class="alert alert-success">Ken's app is ready with Pipeline! This is the Pipeline branch.</h1>
 
 <div class="page-header">
   <h1>Get started with your Spring MVC and Hibernate Application</h1>
