@@ -76,7 +76,6 @@
     </build>
     <profiles>
 		<profile>
-			<id>dev</id>
 			<build>
 				<plugins>
 					<plugin>
